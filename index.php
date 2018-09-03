@@ -19,22 +19,42 @@
  * с ником omk. Вариант его решения вы можете увидеть в комментариях.
  */
 
-//    function echoNumberBy0ToArg_1($arg)
+
+//// Не моя (omk):
+//function numbers(int $x) { // 2
+//    if ($x == 0) { // 2n 1n 0y
+//        echo $x; // 0
+//        return true; // функция на этом завершается положительно
+//    }
+//    $y = numbers($x - 1); // 1 0
+//    echo ', ' . $x; // , 2, 1 - наоборот
+//    return $y; // вернуться к вызову функции |
+//}
+//numbers(15);
+
+//    function echoNumberBy0ToArg_v1($arg)
 //    {
 //        for ($i = 0; $arg >= $i; $i++) {
 //            echo $i . '<br />';
 //        }
 //    }
-//    echoNumberBy0ToArg1(2);
+//    echoNumberBy0ToArg_v1(2);
 
-//    function echoNumberBy0ToArg_2($arg) // 2
+/**
+ * Сначала идет проработка вызова функции в самой себе.
+ * А только потом проработка всех выводов echo $arg, все равно какая-то пелена, что за правила отработки echo и функции
+ * внутри функции? Почему echo потом отрабатывает в обратном порядке ведь числа поступали в порядке 3 2 1 0, а он их
+ * после отработки выводит 0 1 2 3, интересно.
+ */
+//    function numberBy0ToArg_v2($arg)
 //    {
-//        if ($arg >= 0) { // 2
-//            echo $arg - echoNumberBy0ToArg2($arg - 1); // 0 1 2 // Здесь не поянтно почему cперва 0, а не 1 ведь arg-(arg-1)=1?
-//            echo('<br />');
+//        if ($arg >= 0) {
+//            $arg - numberBy0ToArg_v2($arg - 1) . '<br />';
+//            echo $arg;
 //        }
 //    }
-//    echoNumberBy0ToArg2(2);
+//
+//    numberBy0ToArg_v2(3);
 
 //    function factorialBy1ToArg($arg) // 4 3 2 1 0
 //    {
@@ -80,15 +100,15 @@
  *
  * С помощью тернарного оператора определите, является ли число чётным или нечётным и выведите результат.
  */
-/**
- * x= 2
- * n= 3
- * x= 2
- * n= 2
- * x= 2
- * n= 1
- * 8
- */
+
+// * x= 2
+// * n= 3
+// * x= 2
+// * n= 2
+// * x= 2
+// * n= 1
+// * 8
+
 //function power(int $x, int $n)
 //{
 //    print "<br />";
